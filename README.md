@@ -1,10 +1,10 @@
 # st-internship-report
 This repo contains a report regarding my 6-month internship at STMicroelectronics, India.
 
-Install ```pandoc```, ```pandoc-crossref``` and ```latex``` in Arch Linux with
+Install ```pandoc```, ```pandoc-crossref```, ```latex``` and ```ghostscript``` in Arch Linux with
 
 ```zsh
-pacman -S pandoc texlive-core texlive-latexextra pandoc-crossref
+pacman -S pandoc texlive-core texlive-latexextra pandoc-crossref ghostscript
 ```
 
 A list of available otf system fonts can be queried with
