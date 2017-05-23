@@ -12,7 +12,4 @@
 
 echo "# List of Abbreviations" >> $2
 echo "" >> $2
-grep -E -e "^\+\w*:.*" $1 | while read -r line ; do
-    line=$(echo $line | cut -d "+" -f 2)
-	echo "- *"$(echo $line | cut -d ":" -f 1)"* : "$(echo $line | cut -d ":" -f 2) >> $2
-done
+grep -E -e "^\+\w*:.*" $1 | sed 's/+/- */' | sed 's/:/*:/' >> $2
