@@ -15,6 +15,16 @@ report:=report.pdf
 .PHONY: all
 all : $(report)
 
+.PHONY: setup
+setup :
+	git clone https://github.com/scokobro/pandoc-abbreviations /tmp/pandoc-abbreviations
+	cd /tmp/pandoc-abbreviations
+	mkdir -p ~/.pandoc/filters
+	mv -f /tmp/pandoc-abbreviations/abbrevs.py ~/.pandoc/filters/
+	mv -f /tmp/pandoc-abbreviations/dbase ~/.pandoc/dbase
+	rm -rf /tmp/pandoc-abbreviations
+	sudo pacman -S pandoc texlive-core texlive-latexextra pandoc-crossref ghostscript
+
 .PHONY: report-body
 report-body : $(report-body)
 
@@ -45,9 +55,9 @@ $(report-body): $(patsubst %.$(word 2, $(subst ., ,$(report-body))),%.md,$(repor
 	echo -e "\n\n" >> /tmp/intermediate_tmp.md
 	echo "# List of Abbreviations" >> /tmp/intermediate_tmp.md
 	echo -e "\n" >> /tmp/intermediate_tmp.md
-	grep -E -e "^\+[^_]\w*\s*:\s*\w*" $< | sed 's/+/- **/' | sed 's/:/**:/' >> /tmp/abbr_tmp.md
+	grep -E -e "^\+[^!]\w*\s*:\s*\w*" $< | sed 's/+/- **/' | sed 's/:/**:/' >> /tmp/abbr_tmp.md
 	sort /tmp/abbr_tmp.md >> /tmp/intermediate_tmp.md
-	$(pandoc) --variable=geometry:$(papersize) --toc --top-level-division=chapter --number-sections --css $(stylesheet) --latex-engine=$(latexengine) --filter pandoc-crossref --highlight-style=$(highlight-style) --latex-engine=$(latexengine) -s /tmp/intermediate_tmp.md -o $(report-body)
+	$(pandoc) --variable=geometry:$(papersize) --toc --top-level-division=chapter --number-sections --css $(stylesheet) --latex-engine=$(latexengine) --filter pandoc-crossref --filter=abbrevs.py --highlight-style=$(highlight-style) --latex-engine=$(latexengine) -s /tmp/intermediate_tmp.md -o $(report-body)
 	rm /tmp/intermediate_tmp.md /tmp/abbr_tmp.md
 
 $(report): $(cover) $(declaration) $(acknowledgements) $(report-body)
