@@ -36,15 +36,17 @@ clean-temp:
 	rm $(cover) $(declaration) $(acknowledgements) $(report-body)
 	
 
+$(cover) $(declaration) $(acknowledgements): $(patsubst %.$(word 2, $(subst ., ,$@)),%.md,$@) $(template_file)
+	$(pandoc) --variable=geometry:$(papersize) --latex-engine=$(latexengine) --template=$(template_file) -s $(patsubst %.$(word 2, $(subst ., ,$@)),%.md,$@) -o $@
+	
+#$(cover): cover.md $(template_file)
+#	$(pandoc) --variable=geometry:$(papersize) --latex-engine=$(latexengine) --template=$(template_file) -s cover.md -o $(cover)
 
-$(cover): cover.md $(template_file)
-	$(pandoc) --variable=geometry:$(papersize) --latex-engine=$(latexengine) --template=$(template_file) -s cover.md -o $(cover)
+#$(declaration): declaration.md $(template_file)
+#	$(pandoc) --variable=geometry:$(papersize) --latex-engine=$(latexengine) --template=$(template_file) -s declaration.md -o $(declaration)
 
-$(declaration): declaration.md $(template_file)
-	$(pandoc) --variable=geometry:$(papersize) --latex-engine=$(latexengine) --template=$(template_file) -s declaration.md -o $(declaration)
-
-$(acknowledgements): cover.md $(template_file)
-	$(pandoc) --variable=geometry:$(papersize) --latex-engine=$(latexengine) --template=$(template_file) -s acknowledgements.md -o $(acknowledgements)
+#$(acknowledgements): cover.md $(template_file)
+#	$(pandoc) --variable=geometry:$(papersize) --latex-engine=$(latexengine) --template=$(template_file) -s acknowledgements.md -o $(acknowledgements)
 
 $(report-body): report-body.md $(stylesheet)
 	$(pandoc) --variable=geometry:$(papersize) --toc --top-level-division=chapter --number-sections --css $(stylesheet) --latex-engine=$(latexengine) --filter pandoc-crossref --highlight-style=$(highlight-style) --latex-engine=$(latexengine) -s report-body.md -o $(report-body)
