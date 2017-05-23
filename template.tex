@@ -1,7 +1,7 @@
 % taken from https://gist.github.com/michaelt/1017790
 
 %!TEX TS-program = xelatex
-\documentclass[a4paperpaper,12pt]{scrartcl}
+\documentclass[a4paperpaper,$if(fontsize)$$fontsize$$endif$]{scrartcl}
 
 % The declaration of the document class:
 
@@ -120,7 +120,10 @@
 % If you have a copy you might try it; as it is
 % I will comment it out and supply something more certain to be around:
 
-% \setmainfont{Times Roman}
+$if(mainfont)$
+    \setmainfont{$mainfont$}
+$endif$
+
 
 % Properly one should specify a sanserif font and a monospace font
 % see e.g. the example of Kieran Healy:
@@ -134,9 +137,9 @@
 
 % Heading styles:
 % These commands keep the koma system from making stupid sans serif section headings
-\setkomafont{title}{\rmfamily\mdseries\upshape\huge}
-\setkomafont{sectioning}{\rmfamily\mdseries\upshape\normalsize}
-\setkomafont{descriptionlabel}{\rmfamily\mdseries\upshape\normalsize}
+% \setkomafont{title}{\rmfamily\mdseries\upshape\huge}
+% \setkomafont{sectioning}{\rmfamily\mdseries\upshape\normalsize}
+% \setkomafont{descriptionlabel}{\rmfamily\mdseries\upshape\normalsize}
 
 
 

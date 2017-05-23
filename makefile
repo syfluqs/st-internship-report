@@ -43,7 +43,7 @@ $(cover): cover.md $(template_file)
 $(declaration): declaration.md $(template_file)
 	$(pandoc) --variable=geometry:$(papersize) --latex-engine=$(latexengine) --template=$(template_file) -s declaration.md -o $(declaration)
 
-$(acknowledgements): cover.md $(template_file)
+$(acknowledgements): acknowledgements.md $(template_file)
 	$(pandoc) --variable=geometry:$(papersize) --latex-engine=$(latexengine) --template=$(template_file) -s acknowledgements.md -o $(acknowledgements)
 
 $(report-body): report-body.md $(stylesheet)

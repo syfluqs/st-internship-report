@@ -1,5 +1,6 @@
 ---
-font-size: 12pt
+mainfont: Sabon LT
+fontsize: 12pt
 ---
 \topskip0pt
 \vspace*{\fill}

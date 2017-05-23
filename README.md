@@ -15,3 +15,11 @@ fc-list | grep ".otf" | cut -d ":" -f 2,3
 The usable font names and available styles will be printed, separated by a ```:```. Note that, these font names will only work with the ```xelatex``` engine and not with ```lualatex``` or ```pdflatex```.
 
 Compile the report by executing ```make``` in the same directory.
+
+
+<!--
+fonts: 
+- Sabon LT
+- Libre Baskerville
+- Open Baskerville 0.0.75 
+ -->

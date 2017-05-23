@@ -1,8 +1,12 @@
+---
+mainfont: Sabon LT
+fontsize: 12pt
+---
 \begin{center}
 \pagenumbering{gobble}
 \textbf{\large PROJECT REPORT}
 \\ {\large (Project Semester January-June 2017)}
-\\[1in] \textbf{\huge My project title here} 
+\\[1in] \textbf{\Huge My project title here} 
 \\[1.5in] {\normalsize Submitted By}
 \\[0.75in] \textbf{\large Subham Roy}
 \\ \textbf{\large SID: 14105071}
