@@ -3,8 +3,11 @@ ghostscript = gs
 papersize = a4paper
 latexengine = xelatex
 template_file = template.tex
+references_file = references.bib
+csl_file = ieee-with-url.csl
 stylesheet = pandoc.css
-highlight-style = kate
+highlight-style = tango
+references_title = References
 
 cover:=cover.pdf
 declaration:=declaration.pdf
@@ -45,21 +48,20 @@ clean:
 clean-temp:
 	rm $(cover) $(declaration) $(acknowledgements) $(report-body)
 	
-
-$(cover) $(declaration) $(acknowledgements): $(patsubst %.$(word 2, $(subst ., ,$@)),%.md,$@) $(template_file)
-	$(pandoc) --variable=geometry:$(papersize) --latex-engine=$(latexengine) --template=$(template_file) -s $< -o $@
-
-$(report-body): $(patsubst %.$(word 2, $(subst ., ,$(report-body))),%.md,$(report-body)) $(stylesheet)
-	# appending abbreviations list to the end of an intermediate .md file
-	cp $< /tmp/intermediate_tmp.md
-	echo -e "\n\n" >> /tmp/intermediate_tmp.md
-	echo "# List of Abbreviations" >> /tmp/intermediate_tmp.md
-	echo -e "\n" >> /tmp/intermediate_tmp.md
-	grep -E -e "^\+[^!]\w*\s*:\s*\w*" $< | sed 's/+/- **/' | sed 's/:/**:/' >> /tmp/abbr_tmp.md
-	sort /tmp/abbr_tmp.md >> /tmp/intermediate_tmp.md
-	$(pandoc) --variable=geometry:$(papersize) --toc --top-level-division=chapter --number-sections --css $(stylesheet) --latex-engine=$(latexengine) --filter pandoc-crossref --filter=abbrevs.py --highlight-style=$(highlight-style) --latex-engine=$(latexengine) -s /tmp/intermediate_tmp.md -o $(report-body)
-	rm /tmp/intermediate_tmp.md /tmp/abbr_tmp.md
-
 $(report): $(cover) $(declaration) $(acknowledgements) $(report-body)
 	$(ghostscript) -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=$(report) $(cover) $(declaration) $(acknowledgements) $(report-body)
 
+.SECONDEXPANSION:
+$(cover) $(declaration) $(acknowledgements): $$(patsubst %.$$(word 2, $$(subst ., ,$$@)),%.md,$$@) $(template_file)
+	$(pandoc) --variable=geometry:$(papersize) --latex-engine=$(latexengine) --template=$(template_file) -s $< -o $@
+
+$(report-body): $$(patsubst %.$$(word 2, $$(subst ., ,$$@)),%.md,$$@) $(stylesheet) $(references_file) $(csl_file)
+	# appending abbreviations list to the end of an intermediate .md file
+	cp $< /tmp/intermediate_tmp.md
+	echo -e "\n\n# List of Abbreviations \n" >> /tmp/intermediate_tmp.md
+	grep -E -e "^\+[^!]\w*\s*:\s*\w*" $< | sed 's/+/- **/' | sed 's/:/**:/' >> /tmp/abbr_tmp.md
+	sort /tmp/abbr_tmp.md >> /tmp/intermediate_tmp.md
+	# appending references
+	echo -e "\n\n# $(references_title) #\n" >> /tmp/intermediate_tmp.md
+	$(pandoc) --variable=geometry:$(papersize) --toc --bibliography=$(references_file) --csl=$(csl_file) --top-level-division=chapter --number-sections --css $(stylesheet) --latex-engine=$(latexengine) --filter pandoc-crossref --filter=abbrevs.py --filter pandoc-citeproc --highlight-style=$(highlight-style) --latex-engine=$(latexengine) -s /tmp/intermediate_tmp.md -o $@
+	rm /tmp/intermediate_tmp.md /tmp/abbr_tmp.md
