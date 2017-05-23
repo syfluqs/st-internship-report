@@ -27,6 +27,9 @@ declaration: $(declaration)
 .PHONY: acknowledgements
 acknowledgements: $(acknowledgements)
 
+.PHONY: abbreviations
+abbreviations: $(patsubst %.$(word 2, $(subst ., ,$(report-body))),%.md,$(report-body))
+
 .PHONY: clean
 clean:
 	rm $(cover) $(declaration) $(acknowledgements) $(report-body) $(report)
@@ -36,18 +39,13 @@ clean-temp:
 	rm $(cover) $(declaration) $(acknowledgements) $(report-body)
 	
 
-
-$(cover): cover.md $(template_file)
-	$(pandoc) --variable=geometry:$(papersize) --latex-engine=$(latexengine) --template=$(template_file) -s cover.md -o $(cover)
-
-$(declaration): declaration.md $(template_file)
-	$(pandoc) --variable=geometry:$(papersize) --latex-engine=$(latexengine) --template=$(template_file) -s declaration.md -o $(declaration)
-
-$(acknowledgements): acknowledgements.md $(template_file)
-	$(pandoc) --variable=geometry:$(papersize) --latex-engine=$(latexengine) --template=$(template_file) -s acknowledgements.md -o $(acknowledgements)
+$(cover) $(declaration) $(acknowledgements): $(patsubst %.$(word 2, $(subst ., ,$@)),%.md,$@) $(template_file)
+	$(pandoc) --variable=geometry:$(papersize) --latex-engine=$(latexengine) --template=$(template_file) -s $(patsubst %.$(word 2, $(subst ., ,$@)),%.md,$@) -o $@
 
 $(report-body): report-body.md $(stylesheet)
+	
 	$(pandoc) --variable=geometry:$(papersize) --toc --top-level-division=chapter --number-sections --css $(stylesheet) --latex-engine=$(latexengine) --filter pandoc-crossref --highlight-style=$(highlight-style) --latex-engine=$(latexengine) -s report-body.md -o $(report-body)
 
 $(report): $(cover) $(declaration) $(acknowledgements) $(report-body)
 	$(ghostscript) -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=$(report) $(cover) $(declaration) $(acknowledgements) $(report-body)
+
