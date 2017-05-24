@@ -1,0 +1,25 @@
+# A new line is necessary at the end of this file.
+# An abbreviation starting with 0 will not included in the list 
+# of abbreviations, but will be expanded regardless.
++0ST : STMicroelectronics
++0grnoida : Greater Noida
++0in : India
++0ltd : Limited
++0inc : Incorporated
++0slab : Systems Lab
++0dept : Department
++BLDC : Brush-less DC
++ACIM : AC Induction Motor
++BLE : Bluetooth Low Enery
++TCP : Transmission Control Protocol
++UDP : User Datagram Protocol
++0www : World Wide Web
++0PPC: PowerPC
++VLE : Variable Length Encoding
++SIG : Specific Interest Group
++PMSM : Permanant Magnet Synchronous Motor
++ECM : Electronic Commutation Motor
++SoC : System on Chip
++0abbr : abbreviation
++AMG : Analog and MEMS Group
+
