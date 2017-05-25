@@ -65,15 +65,17 @@ $(cover) $(declaration) $(acknowledgements): $$(patsubst %.$$(word 2, $$(subst .
 
 $(report-body): $$(patsubst %.$$(word 2, $$(subst ., ,$$@)),%.md,$$@) $(stylesheet) $(references_file) $(csl_file) $(abbr-list)
 	@cp $< /tmp/intermediate.md
-	@echo "prepending abbreviation list"
-	@sed -e '/^\# Abbreviation List:/r $(abbr-list)' -e '/^\# Abbreviation List\:/d' /tmp/intermediate.md > /tmp/intermediate_tmp.md
+	@cp $(abbr-list) /tmp/intermediate_abbr.md
 	@echo "appending abbreviations list"
 	@echo -e "\n\n# List of Abbreviations \n" >> /tmp/intermediate_tmp.md
-	@grep -E -e "^\+[^\0]\w*\s*:\s*\w*" /tmp/intermediate_tmp.md | sed 's/+/- **/' | sed 's/:/**:/' >> /tmp/abbr_tmp.md
+	@grep -E -e "^\+[^\0]\w*\s*:\s*\w*" /tmp/intermediate_abbr.md | sed 's/+/- **/' | sed 's/:/**:/' >> /tmp/abbr_tmp.md
+	@echo "prepending abbreviation list"
+	@sed -e 's/^\+0/\+/' > /tmp/intermediate_abbr.md
+	@sed -e '/^\# Abbreviation List:/r /tmp/intermediate_abbr.md' -e '/^\# Abbreviation List\:/d' /tmp/intermediate.md > /tmp/intermediate_tmp.md
 	@# grep -E -e "^\+[^\.]\w*\s*:\s*\w*" /tmp/intermediate_tmp.md | sed 's/+/- **/' | sed 's/ :/**+:+/' | sed 's/ /-abcdefgh-/g' | column -t -s "+" | sed 's/ /\&nbsp;/g' | sed 's/-abcdefgh-/ /g' >> /tmp/abbr_tmp.md
 	@sort /tmp/abbr_tmp.md >> /tmp/intermediate_tmp.md
 	@echo "appending references"
 	@echo -e "\n\n# $(references_title) #\n" >> /tmp/intermediate_tmp.md
 	@echo "rendering $(report-body)"
 	@$(pandoc) --variable=geometry:$(papersize) --variable=geometry:bottom=1.25in --toc --bibliography=$(references_file) --csl=$(csl_file) --top-level-division=chapter --number-sections --css $(stylesheet) --latex-engine=$(latexengine) --filter pandoc-crossref --filter=abbrevs.py --filter pandoc-citeproc --highlight-style=$(highlight-style) --latex-engine=$(latexengine) -s /tmp/intermediate_tmp.md -o $@
-	@rm /tmp/intermediate_tmp.md /tmp/abbr_tmp.md /tmp/intermediate.md
+	@rm /tmp/intermediate_tmp.md /tmp/abbr_tmp.md /tmp/intermediate.md /tmp/intermediate_abbr.md
