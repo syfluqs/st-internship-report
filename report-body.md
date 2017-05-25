@@ -35,13 +35,13 @@ monofont: Fantasque Sans Mono
 
 # Summary
 
-During my internship period at +0ST, +0grnoida, +0in, I was involved with several projects in the AMG^[+AMG] Systems Lab +0dept and in the S&M +0dept. The AMG +0slab, also called the Central Lab, is involved with the design, development and implementation of various proof-of-concept systems revolving around fields like IoT, LED lighting, efficient power supplies, wireless communication systems and various motor control applications. As part of the S&M +0dept and AMG Systems Lab, I got an oppurtunity to work on various realms of the industry, from application software development and firmware development to circuit design and testing. A brief categorisation of the projects is depicted in @fig:proj_categ. A short summary of each project is also mentioned in @sec:proj_sum. 
+During my internship period at +ST, +grnoida, +in, I was involved with several projects in the AMG^[+AMG] Systems Lab +dept and in the S&M +dept. The AMG +slab, also called the Central Lab, is involved with the design, development and implementation of various proof-of-concept systems revolving around fields like IoT, LED lighting, efficient power supplies, wireless communication systems and various motor control applications. As part of the S&M +dept and AMG Systems Lab, I got an oppurtunity to work on various realms of the industry, from application software development and firmware development to circuit design and testing. A brief categorisation of the projects is depicted in @fig:proj_categ. A short summary of each project is also mentioned in @sec:proj_sum. 
 
 ![Categorisation of projects done in the Internship period.](img/proj_categ.png){#fig:proj_categ}
 
 ## Summary of projects {#sec:proj_sum}
 
-This is a summary of the broad fields and the corresponding projects that I was involved with in +0ST, +0in.
+This is a summary of the broad fields and the corresponding projects that I was involved with in +ST, +in.
 
 ### BLDC ^[+BLDC] and ACIM ^[+ACIM] Drives and Speed Controllers {#sec:bldc_sum}
 
@@ -51,7 +51,7 @@ PMSM ^[+PMSM], are synchronous motors that use permanant magnets for magnetic fi
 
 Following is a brief list about the projects involving BLDC and ACIM motor drives.
 
-- **BLDC Motor Drive on SPC platform** : The project involved testing of a BLDC drive library already implemented by +0ST. An exhaustive testing and verification of the firmware library was done.
+- **BLDC Motor Drive on SPC platform** : The project involved testing of a BLDC drive library already implemented by +ST. An exhaustive testing and verification of the firmware library was done.
 
 - **BLDC Motor Drive on STM8 platform**: This involved design and tuning of the motor drive using the six-step commutation algorithm.
   Although, the Motor Drive power stage (MB459) was designed for both low voltage (\<35V) and high voltage(\>35V) operations but the end objective was to drive a high power BLDC motor at 48V. The peak power rating of the motor drive was around 300W. The motor drive features Over current protection, over voltage protection, BEMF sampling, Configurable one or three shunt Current Sensing, Configurable UI and user input options and regenerative braking ability. The Motor Drive controls speed through a PI controller and can perform torque regulation in closed loop operation. 
@@ -71,7 +71,7 @@ The idea of IoT in household objects is quite interesting. One such application 
 The Vehicle Tracking System is an attempt to bring IoT technology to automobiles. The Vehicle Tracking System involves a hardware module  incorporated in an automobile and a central server system, designed to transmit and store data in the cloud(central server), which can be accessed by the user via an Android app. 
 The objective was to design and implement a hardware module. The hardware module comprised of a micro-controller (SPC560D40L1) and a GSM module (Quectel M66). The hardware module uses the GSM communication band to transmit vital automobile statistics to the central server via the TCP/IP data packeting protocol. HTTP was used at the application layer.
 
-[^6lowpan]: **6LowPan** is an +0abbr for IPv6 over Low power Wireless Personal Area Networks. It is a technology that was originally intended to extend internet connectivity to smaller low power devices that may not have any dedicated TCP/IP stack.
+[^6lowpan]: **6LowPan** is an +abbr for IPv6 over Low power Wireless Personal Area Networks. It is a technology that was originally intended to extend internet connectivity to smaller low power devices that may not have any dedicated TCP/IP stack.
   Now-a-days, it is used for creating pico-nets or micro-networks of devices, +P2P device communication.
 
 ### Implementation of Servo Motor Abstraction library.
@@ -80,3 +80,7 @@ A hardware abstraction library for servo motors was implemented using STM32 Cube
 
 
 # Introduction
+
+The automotive industry is expanding at a rapid pace. With the introduction of high-efficiency high-density batteries in the market, the automotive market has taken a turn towards electrification of vehicles. Corporations like Tesla Motors are the pioneers of this technology. With an increase in the production of various kinds of cells and batteries, the market has been flooded with these components. As a consequence, the prices for batteries has dropped sharply in the last decade. This has also impacted the automotive industry, with big companies like Tesla Motors to take the intitiative for making "clean" and pollution-free vehicles. Due to the reduced costs and a foresee-able future of such components, developing countries like +in has also started embracing this technology. Introduction of light battery-powered three and four wheelers on Indian roads is a direct consequence of this trend. 
+
+IoT^[+IoT] is also a rapidly growing field. 
