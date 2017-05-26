@@ -22,4 +22,6 @@
 +SoC : System on Chip
 +0abbr : abbreviation
 +AMG : Analog and MEMS Group
-
++ASIC : Application Specific Integrated Circuit
++ECU : Engine Control Unit
++CAN : Controller Area Network
