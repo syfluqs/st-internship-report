@@ -25,3 +25,6 @@
 +ASIC : Application Specific Integrated Circuit
 +ECU : Engine Control Unit
 +CAN : Controller Area Network
++SWD : Single Wire Debug
++SFR : Special Function Register
++OOP : Object-Oriented Programming
