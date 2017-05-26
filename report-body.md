@@ -114,13 +114,14 @@ With the development of dedicated sensors and low cost IoT devices, it is now po
 [^si]: Silicon, here refers to electronic logic components. These may refer to logic gates, ASICs, sensors or microcontroller units.
 
 
-# Software Tools and Hardware Components
+# Software Tools and Hardware Components {#sec:tools}
 
 | Specifications | Title | Justification |
 |:--------------:|:----------:|:--------------|
 | Operating Sytem | Windows 7 | Base OS |
 | IDE | IAR Workbench | IDE for ARM embedded software developmnet |
 | IDE | SPC5Studio | IDE for SPC embedded software development |
+| Software | UDE Debugger Toolkit | A debugger software that supports debugging of microcontrollers with the IEEE compliant JTAG specifications |
 | Software | STM32CubeMX | Firmware Code Generator for the STM32 ARM hardware platform devices |
 | API | BlueNRG-DK | A comprehensive software development kit for the BlueNRG family of SoCs |
 | Programming Language | C | Default language interface for IAR and ppc-gcc-vle compilers used in code production | 
@@ -135,12 +136,43 @@ With the development of dedicated sensors and low cost IoT devices, it is now po
 
 IAR Embedded Workbench is the preferred platform for embedded software development at +ST, +in. IAR offers a fast and easy way to write code, compile, upload and flash onto the hardware with minimal effort. It provides an integrated solution for rapid software development. IAR employs its own compiler toolchain for compiling C code to the ARM Cortex-M core based hardware platforms. There are several other IDEs as well like Keil, AC6 Studio, etc. but they do not provide as much streamlined development cycle as IAR does. 
 
+### In-built debugger system
+
+IAR workbench has an in-built debugger system, that supports several hardware specifications like JTAG, J-LINK, STLINK, SWD^[+SWD], SWIM, etc. The debugger supports functions such as
+- Breakpoints
+- Run or pause execution control
+- C-SPY single command execution
+- Custom scatter file or linker file configuration
+- Live-watch of variables
+- Real time view of memory, SFRs and CPU registers
+- Injecting values in registers and memory location in real time.
+
+### Language Support
+
+IAR compiler supports both C and C++ as programming languages for embedded software. With the introduction of +OOP concepts in programming, it has become very easy to implement close to real life systems and procedures. Thus, embedded software has also moved a step away from the bare-metal programming^[close to Assembly Language Programming] to more abstract programming. This has been possible due to cheap and highly efficient memory and logic systems. Thus, memory speed and capacity is not a bottleneck, but the speed of development of software is.
+
 ## SPC5Studio 
 
-It is the official IDE for embedded firmware development for the SPC hardware platform. It supports three compiler toolchains:
+It is the official IDE for embedded firmware development for the SPC hardware platform (discussed in @sec:spc}. It supports three compiler toolchains:
 - FreeGCC compiler toolchain with VLE (GNU)
 - Hightec Compiler Collection (Proprietary)
 - GHS Compiler Toolchain (Proprietary)
-The IDE is based on the Eclipse IDE, a popular open-source IDE for C development. The low level-firmware packages are part of the SPC5Studio itself. The low-level drivers are made in the Freemarker templating language. A GUI interface is provided for manual configuration of the low-level drivers. 
+The IDE is based on the Eclipse IDE, a popular open-source IDE for C development. The low level-firmware packages are part of the SPC5Studio itself. The low-level drivers are made in the Freemarker templating language. A GUI interface is provided for manual configuration of the low-level drivers. The configuration can also be done directly to the low-level header files. This kind of configuration is kept persistent using the Patch Architecture of SPC5Studio. It is discussed in @sec:spcstudio_patches.
 
+### Patch architecture {#sec:spcstudio_patches}
+
+The common code for the low-level drivers is embedded in the SPC5Studio itself and included in the project automatically. This is in contrast to other IDEs, where the user has to download the relevant low-level drivers and include them manually in the project. THe advantage of SPC5Studio's method is that, in case of a new version of the low-level drivers is released the IDE will automatically the project according to the new version, while in other IDEs the user has to do so manually. 
+If the user wishes to change or edit the low-level driver's code, he/she can do so without having any portabliity issues. This is done using patches. A patch is a piece of arbitrary code that is added on to the base code. The information about each patch is stored in a database file by SPC5Studio and applied to the base code whenever the project is generated.
+
+### Powerful code-completion and management platform
+
+SPC5Studio is built on Eclipse IDE, which is a very popular IDE for Java and C programming. It has borrowed excellent code completion and management features from Eclipse. This enhances productivity and speed of the developer. 
+
+### Pre-built project templates and configuration
+
+To increase the speed of development, several pre-built project templates are already included in the IDE. These project templates contain code for general configuration and operation of each peripheral of the device.
+
+## UDE Debugger Toolkit
+
+Since SPC5Studio does not have any built-in debugging framework or tools, an external toolkit is necessary for operation and debugging. For SPC platform, UDE Debugging toolkit
 
