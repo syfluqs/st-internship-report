@@ -114,6 +114,33 @@ With the development of dedicated sensors and low cost IoT devices, it is now po
 [^si]: Silicon, here refers to electronic logic components. These may refer to logic gates, ASICs, sensors or microcontroller units.
 
 
+# Software Tools and Hardware Components
 
+| Specifications | Title | Justification |
+|:--------------:|:----------:|:--------------|
+| Operating Sytem | Windows 7 | Base OS |
+| IDE | IAR Workbench | IDE for ARM embedded software developmnet |
+| IDE | SPC5Studio | IDE for SPC embedded software development |
+| Software | STM32CubeMX | Firmware Code Generator for the STM32 ARM hardware platform devices |
+| API | BlueNRG-DK | A comprehensive software development kit for the BlueNRG family of SoCs |
+| Programming Language | C | Default language interface for IAR and ppc-gcc-vle compilers used in code production | 
+| Hardware Device | STM32 nucleo boards | Evaluation boards for STM32 ARM hardware platform | 
+| Hardware Device | SPC discovery boards | Evaluation boards for SPC hardware platform |
+| Hardware Device | BlueNRG-1 | BLE SOC based on ARM Cortex-M0 core |
+| Hardware Device | Telit GL865 | SoC for GSM Communication |
+| Hardware Device | Quectel M66 | SoC for GSM Communication |
+| Management Tools | Git | Code Version Management and Repository System |
+
+## IAR Workbench (also called EWARM, Embedded Workbench for ARM)
+
+IAR Embedded Workbench is the preferred platform for embedded software development at +ST, +in. IAR offers a fast and easy way to write code, compile, upload and flash onto the hardware with minimal effort. It provides an integrated solution for rapid software development. IAR employs its own compiler toolchain for compiling C code to the ARM Cortex-M core based hardware platforms. There are several other IDEs as well like Keil, AC6 Studio, etc. but they do not provide as much streamlined development cycle as IAR does. 
+
+## SPC5Studio 
+
+It is the official IDE for embedded firmware development for the SPC hardware platform. It supports three compiler toolchains:
+- FreeGCC compiler toolchain with VLE (GNU)
+- Hightec Compiler Collection (Proprietary)
+- GHS Compiler Toolchain (Proprietary)
+The IDE is based on the Eclipse IDE, a popular open-source IDE for C development. The low level-firmware packages are part of the SPC5Studio itself. The low-level drivers are made in the Freemarker templating language. A GUI interface is provided for manual configuration of the low-level drivers. 
 
 
