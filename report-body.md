@@ -174,5 +174,7 @@ To increase the speed of development, several pre-built project templates are al
 
 ## UDE Debugger Toolkit
 
-Since SPC5Studio does not have any built-in debugging framework or tools, an external toolkit is necessary for operation and debugging. For SPC platform, UDE Debugging toolkit
+Since SPC5Studio does not have any built-in debugging framework or tools, an external toolkit is necessary for operation and debugging. For SPC platform, UDE Debugging toolkit is the standard and default software for debugging. It has built in support for many CPU architectures and several debugging specifications. It also has support for assembly language style breakpoints, i.e. it will show the code in assembly language and the user can run the code one line at a time.
+
+
 
