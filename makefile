@@ -67,13 +67,14 @@ $(report-body): $$(patsubst %.$$(word 2, $$(subst ., ,$$@)),%.md,$$@) $(styleshe
 	@cp $< /tmp/intermediate.md
 	@cp $(abbr-list) /tmp/intermediate_abbr.md
 	@echo "appending abbreviations list"
-	@echo -e "\n\n# List of Abbreviations \n" >> /tmp/intermediate_tmp.md
+	@echo -e "\n\n# List of Abbreviations \n" >> /tmp/intermediate.md
 	@grep -E -e "^\+[^\0]\w*\s*:\s*\w*" /tmp/intermediate_abbr.md | sed 's/+/- **/' | sed 's/:/**:/' >> /tmp/abbr_tmp.md
+	@sort /tmp/abbr_tmp.md >> /tmp/intermediate.md
 	@echo "prepending abbreviation list"
-	@sed -e 's/^\+0/\+/' > /tmp/intermediate_abbr.md
-	@sed -e '/^\# Abbreviation List:/r /tmp/intermediate_abbr.md' -e '/^\# Abbreviation List\:/d' /tmp/intermediate.md > /tmp/intermediate_tmp.md
+	@rm /tmp/abbr_tmp.md
+	@cat /tmp/intermediate_abbr.md | sed -e 's/^\+0/\+/' > /tmp/abbr_tmp.md
+	@sed -e '/^\# Abbreviation List:/r /tmp/abbr_tmp.md' -e '/^\# Abbreviation List\:/d' /tmp/intermediate.md > /tmp/intermediate_tmp.md
 	@# grep -E -e "^\+[^\.]\w*\s*:\s*\w*" /tmp/intermediate_tmp.md | sed 's/+/- **/' | sed 's/ :/**+:+/' | sed 's/ /-abcdefgh-/g' | column -t -s "+" | sed 's/ /\&nbsp;/g' | sed 's/-abcdefgh-/ /g' >> /tmp/abbr_tmp.md
-	@sort /tmp/abbr_tmp.md >> /tmp/intermediate_tmp.md
 	@echo "appending references"
 	@echo -e "\n\n# $(references_title) #\n" >> /tmp/intermediate_tmp.md
 	@echo "rendering $(report-body)"

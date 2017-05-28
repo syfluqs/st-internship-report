@@ -90,9 +90,11 @@ The automotive industry is expanding at a rapid pace. Automobiles are now-a-days
 ## Internet of Things
 
 Internet of Things refers to a network of physical objects, like household articles, vehicles, tools, buildings, worn-items, etc. embedded with suitable software and hardware. This software and hardware may enable these objects to communicate with each other or with devices on another network like the Internet. IoT^[+IoT] is also a rapidly growing field. Wireless IoT devices are now-a-days avaialable in any shape or size, starting from smart household appliances like TV, AC, Refrigerators, etc. to small beacons the size of a coin and wearable devices. IoT enabled devices may enable the user to interact with the devices in a number of ways, which include:
+
 - Controlling the device with the help of another device like a mobile phone or a computer.
 - Controlling the device with help of HID (Human Interface Device).
-- Controlling the device with the help of ones body, using suitable sensors. For example, a smart-watch may be used to turn on an appliance when it detects motion in a certain direction. Sensors such as accelerometers and gyroscopes may be used to detect linear or radial motion.
+- Controlling the device with the help of ones body, using suitable sensors. 
+  For example, a smart-watch may be used to turn on an appliance when it detects motion in a certain direction. Sensors such as accelerometers and gyroscopes may be used to detect linear or radial motion.
 - Device controlling another appliance.
 
 The uses of IoT are limitless and it is just a matter of time, when the market will be flooded with IoT based devices.
@@ -100,10 +102,12 @@ The uses of IoT are limitless and it is just a matter of time, when the market w
 ## Combining Automotive Electrification and IoT
 
 With the development of dedicated sensors and low cost IoT devices, it is now possible to efficiently integrate IoT into automobiles. Various kinds of electronic integration is already existent in present automobiles, such as
+
 - **Automotive ECU** : ECU stands for +ECU. It is a logical control system, which takes some input data from the automobiles engine sensors like temperature, acceleration, rate of fuel flow, etc. The ECU is responsible for the efficient combustion of fuel and maintaining the engine conditions well within its operation limits.
 - **Body Control Devices** : Body Control Units are responsible for various body control functions of the automobile like central locking system, power windows, various lights like the headlights, tail-lights and indicator lights.
 - **Automotive Audio Equipment** : Audio Equipments in automobiles are composed of various electronic devices like audio amplifiers, radio-frequency systems, audio decoders and effects-processors(DSP), low noise amplifiers, speaker systems.
 - **CAN Bus** : CAN stands for +CAN. It is a automotive bus specification designed for high speed data transfer. The CAN bus enables several microcontrollers to share data with each other without the presence of a host or central system. It is used for integrating various electronic automotive components like the ECU, Body control unit, sensors, etc. with each other so that they can function in harmony. The CAN bus is discussed in more detail in {@sec:canbus}
+
 
 ### The need for IoT in automobiles
 
@@ -116,21 +120,35 @@ With the development of dedicated sensors and low cost IoT devices, it is now po
 
 # Software Tools and Hardware Components {#sec:tools}
 
-| Specifications | Title | Justification |
-|:--------------:|:----------:|:--------------|
-| Operating Sytem | Windows 7 | Base OS |
-| IDE | IAR Workbench | IDE for ARM embedded software developmnet |
-| IDE | SPC5Studio | IDE for SPC embedded software development |
-| Software | UDE Debugger Toolkit | A debugger software that supports debugging of microcontrollers with the IEEE compliant JTAG specifications |
-| Software | STM32CubeMX | Firmware Code Generator for the STM32 ARM hardware platform devices |
-| API | BlueNRG-DK | A comprehensive software development kit for the BlueNRG family of SoCs |
-| Programming Language | C | Default language interface for IAR and ppc-gcc-vle compilers used in code production | 
-| Hardware Device | STM32 nucleo boards | Evaluation boards for STM32 ARM hardware platform | 
-| Hardware Device | SPC discovery boards | Evaluation boards for SPC hardware platform |
-| Hardware Device | BlueNRG-1 | BLE SOC based on ARM Cortex-M0 core |
-| Hardware Device | Telit GL865 | SoC for GSM Communication |
-| Hardware Device | Quectel M66 | SoC for GSM Communication |
-| Management Tools | Git | Code Version Management and Repository System |
++----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
+| Specifications       | Title                | Justification                                                                                               |
++:====================:+:====================:+:============================================================================================================+
+| Operating Sytem      | Windows 7            | Base OS                                                                                                     |
++----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
+| IDE                  | IAR Workbench        | IDE for ARM embedded software developmnet                                                                   |
++----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
+| IDE                  | SPC5Studio           | IDE for SPC embedded software development                                                                   |
++----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
+| Software             | UDE Debugger Toolkit | A debugger software that supports debugging of microcontrollers with the IEEE compliant JTAG specifications |
++----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
+| Software             | STM32CubeMX          | Firmware Code Generator for the STM32 ARM hardware platform devices                                         |
++----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
+| API                  | BlueNRG-DK           | A comprehensive software development kit for the BlueNRG family of SoCs                                     |
++----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
+| Programming Language | C                    | Default language interface for IAR and ppc-gcc-vle compilers used in code production                        | 
++----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
+| Hardware Device      | STM32 nucleo boards  | Evaluation boards for STM32 ARM hardware platform                                                           | 
++----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
+| Hardware Device      | SPC discovery boards | Evaluation boards for SPC hardware platform                                                                 |
++----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
+| Hardware Device      | BlueNRG-1            | BLE SOC based on ARM Cortex-M0 core                                                                         |
++----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
+| Hardware Device      | Telit GL865          | SoC for GSM Communication                                                                                   |
++----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
+| Hardware Device      | Quectel M66          | SoC for GSM Communication                                                                                   |
++----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
+| Management Tools     | Git                  | Code Version Management and Repository System                                                               |
++----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
 
 ## IAR Workbench (also called EWARM, Embedded Workbench for ARM)
 
@@ -139,6 +157,7 @@ IAR Embedded Workbench is the preferred platform for embedded software developme
 ### In-built debugger system
 
 IAR workbench has an in-built debugger system, that supports several hardware specifications like JTAG, J-LINK, STLINK, SWD^[+SWD], SWIM, etc. The debugger supports functions such as
+
 - Breakpoints
 - Run or pause execution control
 - C-SPY single command execution
@@ -154,9 +173,11 @@ IAR compiler supports both C and C++ as programming languages for embedded softw
 ## SPC5Studio 
 
 It is the official IDE for embedded firmware development for the SPC hardware platform (discussed in @sec:spc}. It supports three compiler toolchains:
+
 - FreeGCC compiler toolchain with VLE (GNU)
 - Hightec Compiler Collection (Proprietary)
 - GHS Compiler Toolchain (Proprietary)
+
 The IDE is based on the Eclipse IDE, a popular open-source IDE for C development. The low level-firmware packages are part of the SPC5Studio itself. The low-level drivers are made in the Freemarker templating language. A GUI interface is provided for manual configuration of the low-level drivers. The configuration can also be done directly to the low-level header files. This kind of configuration is kept persistent using the Patch Architecture of SPC5Studio. It is discussed in @sec:spcstudio_patches.
 
 ### Patch architecture {#sec:spcstudio_patches}
