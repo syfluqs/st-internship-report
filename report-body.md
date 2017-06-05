@@ -195,7 +195,44 @@ To increase the speed of development, several pre-built project templates are al
 
 ## UDE Debugger Toolkit
 
-Since SPC5Studio does not have any built-in debugging framework or tools, an external toolkit is necessary for operation and debugging. For SPC platform, UDE Debugging toolkit is the standard and default software for debugging. It has built in support for many CPU architectures and several debugging specifications. It also has support for assembly language style breakpoints, i.e. it will show the code in assembly language and the user can run the code one line at a time.
+Since SPC5Studio does not have any built-in debugging framework or tools, an external toolkit is necessary for operation and debugging. For SPC platform, UDE Debugging toolkit is the standard and default software for debugging. It has built in support for many CPU architectures and several debugging specifications. It also has support for assembly language mixed-breakpoints, i.e. it will show the code in assembly language and the user can run the code one line at a time.
+
+## STM32CubeMX
+
+STM32CubeMX is part of the STMCube project by +ST, whose objective is to ease and shorten the development efforts and time. The STM32CubeMX is targeted for the STM32 ARM-based platform. Similar software kit exists for the STM8 and SPC platforms also. In simple words, STM32CubeMX is a initialisation code generator. It provides an easy to use and interactive GUI to configure and generate firmware code for a platform. Its general flow of use is
+
+- Select a suitable microcontroller platform, based on the features and number of peripherals. STM32CubeMX provides a comprehensive database so that the user can easily choose a platform, according to his/her needs.
+- Configure which peripherals to use. It automatically disables the clock source for the peripherals selected not to be used.
+- Configure the clock frequency to each peripheral by adjusting the clock prescalers for each of them.
+- Generate the initialisation code and open it in the IDE of choice.
+- Add the application code in the code thus generated.
+
+At this moment, STM32CubeMX supports several IDEs out of the box like IAR, OpenSTM32Studio or AC6, Keil and Atollic TrueStudio.
+
+## BlueNRG-1 DK
+
+It stands for BlueNRG-1 Application Development Kit. It is a set of tools and low-level drivers for the BlueNRG-1 platform. The parts of the Development kit are
+
+- **BlueNRG-1 Flasher** : It is tool for flashing compiled hex code to a BlueNRG-1 device.
+- **BlueNRG-1 ST-LINK Utility** : It is a utility software for core level configuration of the BlueNRG-1 platform.
+- **Documentation** : A comprehensive set of documentation for using the low-level drivers and APIs for the platform.
+- **Example Firmwares** : A few examples that demonstrate typical uses of the Development Kit.
+- **C Libraries** : Some C libraries needed by the Development Kit like, peripheral drivers, CMSIS^[+CMSIS], HAL^[+HAL] libraries and BSPs^[+BSP].
+
+## Toolchains
+
+A toolchain is a set of tools and software used to perform complex software development tasks. A toolchain may include compilers and debuggers for a platform and even version control systems. A Version Control System is a tool that allows easy management of code across many versions and changes.
+
+For almost all of the period of internship, the C programming was used. As there were a number of different platforms it was necessary to use a wide variety of toolchains. Some toolchains that were used
+
+- IAR ARM toolchain
+- GNU GCC ARM toolchain
+- GNU GCC PPC toolchain (with VLE support)
+- COSMIC STM8 toolchain
+
+## STM32 Nucleo
+
+The STM32 Nucleo 
 
 
 
