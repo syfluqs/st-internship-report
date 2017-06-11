@@ -120,35 +120,31 @@ With the development of dedicated sensors and low cost IoT devices, it is now po
 
 # Software Tools and Hardware Components {#sec:tools}
 
-+----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
-| Specifications       | Title                | Justification                                                                                               |
-+:====================:+:====================:+:============================================================================================================+
-| Operating Sytem      | Windows 7            | Base OS                                                                                                     |
-+----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
-| IDE                  | IAR Workbench        | IDE for ARM embedded software developmnet                                                                   |
-+----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
-| IDE                  | SPC5Studio           | IDE for SPC embedded software development                                                                   |
-+----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
-| Software             | UDE Debugger Toolkit | A debugger software that supports debugging of microcontrollers with the IEEE compliant JTAG specifications |
-+----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
-| Software             | STM32CubeMX          | Firmware Code Generator for the STM32 ARM hardware platform devices                                         |
-+----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
-| API                  | BlueNRG-DK           | A comprehensive software development kit for the BlueNRG family of SoCs                                     |
-+----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
-| Programming Language | C                    | Default language interface for IAR and ppc-gcc-vle compilers used in code production                        | 
-+----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
-| Hardware Device      | STM32 nucleo boards  | Evaluation boards for STM32 ARM hardware platform                                                           | 
-+----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
-| Hardware Device      | SPC discovery boards | Evaluation boards for SPC hardware platform                                                                 |
-+----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
-| Hardware Device      | BlueNRG-1            | BLE SOC based on ARM Cortex-M0 core                                                                         |
-+----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
-| Hardware Device      | Telit GL865          | SoC for GSM Communication                                                                                   |
-+----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
-| Hardware Device      | Quectel M66          | SoC for GSM Communication                                                                                   |
-+----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
-| Management Tools     | Git                  | Code Version Management and Repository System                                                               |
-+----------------------+----------------------+-------------------------------------------------------------------------------------------------------------+
+\begingroup
+\fontsize{7}{10}\selectfont
+
+S.No.| Specifications             | Title                | Description                                                                                                 |
+----:|:---------------------------|:---------------------|:------------------------------------------------------------------------------------------------------------|
+  1. | Operating Sytem            | Windows 7            | Base OS                                                                                                     |
+  2. | IDE                        | IAR Workbench        | IDE for ARM embedded software development                                                                   |
+  3. | IDE                        | SPC5Studio           | IDE for SPC embedded software development                                                                   |
+  4. | Software                   | UDE Debugger         | A debugger software that supports debugging of microcontrollers with the IEEE compliant JTAG specifications |
+  5. | Software                   | STM32CubeMX          | Firmware Code Generator for the STM32 ARM hardware platform devices                                         |
+  6. | API and Stack              | BlueNRG-DK           | A comprehensive software development kit for the BlueNRG family of SoCs                                     |
+  7. | Programming Language       | C                    | Default language interface for IAR and ppc-gcc-vle compilers used in code production                        | 
+  8. | Hardware Device            | STM32 Nucleo         | Evaluation boards for STM32 ARM hardware platform                                                           | 
+  9. | Hardware Device            | SPC Discovery        | Evaluation boards for SPC hardware platform                                                                 |
+ 10. | Hardware Device            | BlueNRG-1            | BLE SOC based on ARM Cortex-M0 core                                                                         |
+ 11. | Hardware Device            | Telit GL865          | SoC for GSM Communication                                                                                   |
+ 12. | Hardware Device            | Quectel M66          | SoC for GSM Communication                                                                                   |
+ 13. | Management Tools           | Git                  | Code Version Management and Repository System                                                               |
+
+: A brief summary of the tools used {#tbl:tool_summary}
+
+\endgroup
+
+
+
 
 ## IAR Workbench (also called EWARM, Embedded Workbench for ARM)
 
@@ -196,6 +192,7 @@ To increase the speed of development, several pre-built project templates are al
 ## UDE Debugger Toolkit
 
 Since SPC5Studio does not have any built-in debugging framework or tools, an external toolkit is necessary for operation and debugging. For SPC platform, UDE Debugging toolkit is the standard and default software for debugging. It has built in support for many CPU architectures and several debugging specifications. It also has support for assembly language style breakpoints, i.e. it will show the code in assembly language and the user can run the code one line at a time.
+
 
 
 
