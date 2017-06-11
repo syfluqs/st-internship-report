@@ -28,4 +28,7 @@
 +SWD : Single Wire Debug
 +SFR : Special Function Register
 +OOP : Object-Oriented Programming
++CMSIS : Cortex Microcontroller Software Interface Standard
++BSP : Board Support Packages
++HAL : Hardware Abstraction Layer
 
