@@ -238,4 +238,51 @@ Similar to the Nucleo boards, Discovery boards provide a fast and reliable platf
 
 ## BlueNRG-1 Bluetooth SoC platform
 
+The BlueNRG-1 is a very low power Bluetooth low energy (BLE) single-mode system-on-chip, compliant with Bluetooth specification.
+The BlueNRG-1 extends the features of award-winning BlueNRG network processor, enabling the usage of the embedded Cortex M0 for running the user application code.
+The BlueNRG-1 includes 160 KB of programming Flash memory, 24 KB of static RAM memory with retention (two 12 KB banks) and SPI, UART, I²C standard communication interface peripherals. It also features multifunction timers, watchdog, RTC and DMA controller.
+An ADC is available for interfacing with analog sensors, and for reading the measurement of the integrated battery monitor. A digital filter is available for processing a PDM stream.
+The BlueNRG-1 offers the same excellent RF performance of the BlueNRG radio, and the integrated high efficiency DC/DC converter keeps the same ultra-low power characteristics, but the BlueNRG-1 improves the BlueNRG sleep mode current consumption allowing a further increase in the battery lifetime of the applications.
 
+The key features of this network processor are:
+
+-Bluetooth specification compliant master, slave and multiple roles simultaneously, single-mode Bluetooth low energy system-on-chip
+- Operating supply voltage: from 1.7 to 3.6 V
+- Integrated linear regulator and DC-DC step-down converter
+- Operating temperature range: -40 °C to 105 °C
+- High performance, ultra-low power Cortex-M0 32-bit based architecture core
+- Programmable 160 KB Flash
+- 24 KB RAM with retention (two 12 KB banks)
+- 1 x UART interface
+- 1 x SPI interface
+- 2 x I²C interface
+- 14 or 15 GPIO
+- 2 x multifunction timer
+- 10-bit ADC
+- Watchdog & RTC
+- DMA controller
+- PDM stream processor
+- 16 or 32 MHz crystal oscillator
+- 32 kHz crystal oscillator
+- 32 kHz ring oscillator
+- Battery voltage monitor and temperature sensor
+- Up to +8 dBm available output power (at antenna connector)
+- Excellent RF link budget (up to 96 dB)
+- Accurate RSSI to allow power control
+- 8.3 mA TX current (@ -2 dBm, 3.0 V)
+- Down to 1 µA current consumption with active BLE stack (sleep mode)
+- Suitable for building applications compliant with the following radio frequency regulations: ETSI EN 300 328, EN 300 440, FCC CFR47 Part 15, ARIB STD-T66
+- Pre-programmed bootloader via UART
+- QFN32, WCSP34 package option
+- Dedicated wettable flank QFN package for automotive grade qualification
+
+## Telit GL865 and Quectel M66
+
+The Telit GL865 and Quectel M66 are integrated network processor SoCs. These are designed for GSM communication. They support the dual GSM frequency bands. Both of the modules can be easily interfaced to a master device or microcontroller using UART or SPI, but can also function as tandalone network processors. The Telit GL865 features an in-built hardware python interpreter. This interpreter allows it to decode python statements that can be written to the modules flash memory to perform standalone tasks. The M66, on the other hand, is designed as a cheap and rugged SoC with the smallest footprint and size in the industry. Both of the processors are extremely efficient and operate at 1.6V CMOS technology.
+
+## Git Version Control and Management System
+
+Git is a software tool used for version control and management. It essentially keeps track of the changes and additions made in the project files and maintains a history for each of the selected files in a project directory. This helps the programmer to quickly revert back to a working version if an addition to the code breaks its functionality or to develop new features in complete isolation to the main branch, so that they don't break the main branch ir something goes wrong. Git is also an extremely useful tool for team coordination and collaboration. A central source code repository can be maintained, and a large team can contribute to the repository by "pushing" their code to this central repository. 
+
+
+# 
