@@ -1,5 +1,7 @@
 pandoc = pandoc
 ghostscript = gs
+stapler = stapler
+pdftk = pdftk
 papersize = a4paper
 latexengine = xelatex
 template_file = template.tex
@@ -56,20 +58,25 @@ clean-temp:
 
 $(report): $(cover) $(declaration) $(acknowledgements) $(report-body)
 	@echo "compiling $(report)"
-	@$(ghostscript) -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=$(report) $(cover) $(declaration) $(acknowledgements) $(report-body)
+	@# @$(ghostscript) -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=$(report) $(cover) $(declaration) $(acknowledgements) $(report-body)
+	@# @$(stapler) sel $(cover) $(declaration) $(acknowledgements) $(report-body) 3-end $(report)
+	@$(pdftk) A=$(cover) B=$(declaration) C=$(acknowledgements) D=$(report-body) cat Arend-end Brend-end Crend-end D3-end output $(report)
 
 .SECONDEXPANSION:
 $(cover) $(declaration) $(acknowledgements): $$(patsubst %.$$(word 2, $$(subst ., ,$$@)),%.md,$$@) $(template_file)
 	@echo "making $@"
 	@$(pandoc) --variable=geometry:$(papersize) --latex-engine=$(latexengine) --template=$(template_file) -s $< -o $@
 
-$(report-body): $$(patsubst %.$$(word 2, $$(subst ., ,$$@)),%.md,$$@) $(stylesheet) $(references_file) $(csl_file) $(abbr-list)
+$(report-body): $$(patsubst %.$$(word 2, $$(subst ., ,$$@)),%.md,$$@) $(stylesheet) $(references_file) $(csl_file) $(abbr-list) $(template_file)
 	@cp $< /tmp/intermediate.md
 	@cp $(abbr-list) /tmp/intermediate_abbr.md
-	@echo "appending abbreviations list"
-	@echo -e "\n\n# List of Abbreviations \n" >> /tmp/intermediate.md
+	@#@echo "creating abbreviations list"
+	@#@echo -e "\n\n\\chapter\*\{List of Abbreviations\} \n" >> /tmp/intermediate.md
 	@grep -E -e "^\+[^\0]\w*\s*:\s*\w*" /tmp/intermediate_abbr.md | sed 's/+/- **/' | sed 's/:/**:/' >> /tmp/abbr_tmp.md
-	@sort /tmp/abbr_tmp.md >> /tmp/intermediate.md
+	@rm sorted_abbr.txt
+	@sort /tmp/abbr_tmp.md >> sorted_abbr.txt
+	@# @sed -e '/^\\listoffigures/r /tmp/sorted_abbr.md' -e '/^\\listoffigures/d' /tmp/intermediate.md > /tmp/intermediate_tmp.md
+	@#@sed -e "s/\\listoffigures/$(echo -e '\\listoffigures\\n\\nchapter\*\{List of Abbreviations\}'; cat /tmp/sorted_abbr.md)/" /tmp/intermediate.md > /tmp/intermediate_tmp.md
 	@echo "prepending abbreviation list"
 	@rm /tmp/abbr_tmp.md
 	@cat /tmp/intermediate_abbr.md | sed -e 's/^\+0/\+/' > /tmp/abbr_tmp.md
@@ -78,5 +85,5 @@ $(report-body): $$(patsubst %.$$(word 2, $$(subst ., ,$$@)),%.md,$$@) $(styleshe
 	@echo "appending references"
 	@echo -e "\n\n# $(references_title) #\n" >> /tmp/intermediate_tmp.md
 	@echo "rendering $(report-body)"
-	@$(pandoc) --variable=geometry:$(papersize) --variable=geometry:bottom=1.25in --toc --bibliography=$(references_file) --csl=$(csl_file) --top-level-division=chapter --number-sections --css $(stylesheet) --latex-engine=$(latexengine) --filter pandoc-crossref --filter=abbrevs.py --filter pandoc-citeproc --highlight-style=$(highlight-style) --latex-engine=$(latexengine) -s /tmp/intermediate_tmp.md -o $@
-	@rm /tmp/intermediate_tmp.md /tmp/abbr_tmp.md /tmp/intermediate.md /tmp/intermediate_abbr.md
+	@$(pandoc) --variable=geometry:$(papersize) --variable=documentclass:book --variable=geometry:bottom=1.25in --variable=geometry:hmarginratio=6:5 --toc --bibliography=$(references_file) --csl=$(csl_file) --top-level-division=chapter --number-sections --css $(stylesheet) --latex-engine=$(latexengine) --filter pandoc-crossref --filter=abbrevs.py --filter pandoc-citeproc --highlight-style=$(highlight-style) --latex-engine=$(latexengine) -s /tmp/intermediate_tmp.md -o $@
+	@rm /tmp/intermediate_tmp.md /tmp/abbr_tmp.md /tmp/intermediate.md /tmp/intermediate_abbr.md 

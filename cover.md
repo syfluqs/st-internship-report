@@ -6,17 +6,17 @@ fontsize: 12pt
 \pagenumbering{gobble}
 \textbf{\large PROJECT REPORT}
 \\ {\large (Project Semester January-June 2017)}
-\\[1in] \textbf{\Huge My project title here} 
+\\[1in] \textbf{\Huge Automotive Electronic Integration (Vehicle Tracking System)} 
 \\[1.5in] {\normalsize Submitted By}
 \\[0.75in] \textbf{\large Subham Roy}
 \\ \textbf{\large SID: 14105071}
 \\[1.7in] {\normalsize Under the Guidance of}
-\\[0.8in]
+\\[0.3in]
 \end{center}
 \noindent
 \begin{flushleft}
-\textbf{\normalsize Mrs. Jyoti Kedia} \hfill \textbf{\normalsize Mr. Bipin Chandra Pande}
-\\ {\normalsize  Assistant Professor} \hfill {\normalsize Manager, S\&M}
+\textbf{\normalsize Dr. Jyoti Kedia} \hfill \textbf{\normalsize Mr. Bipin Chandra Pande}
+\\ {\normalsize  Assistant Professor} \hfill {\normalsize Manager, Automotive}
 \\ {\normalsize  Dept of Electronics and} \hfill {\normalsize STMicroelectronics, India}
 \\ {\normalsize Communication Engineering}
 \\ {\normalsize  PEC University of Technology}
@@ -26,6 +26,8 @@ fontsize: 12pt
 \\ \textbf{\normalsize PEC University of Technology, Chandigarh}
 \\[0.25in] {\normalsize January to June 2017}
 \end{center}
+<!-- adding a blank page -->
+\leavevmode\thispagestyle{empty}\newpage
 <!-- to hide page numbers -->
 <!-- \thispagestyle{empty} -->
 <!-- \pagenumbering{gobble} to restart page numbering -->

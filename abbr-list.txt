@@ -10,7 +10,7 @@
 +0dept : Department
 +BLDC : Brush-less DC
 +ACIM : AC Induction Motor
-+BLE : Bluetooth Low Enery
++BLE : Bluetooth Low Energy
 +TCP : Transmission Control Protocol
 +UDP : User Datagram Protocol
 +0www : World Wide Web
@@ -25,10 +25,18 @@
 +ASIC : Application Specific Integrated Circuit
 +ECU : Engine Control Unit
 +CAN : Controller Area Network
++LIN : Local Interconnect Network
 +SWD : Single Wire Debug
 +SFR : Special Function Register
 +OOP : Object-Oriented Programming
 +CMSIS : Cortex Microcontroller Software Interface Standard
 +BSP : Board Support Packages
 +HAL : Hardware Abstraction Layer
-
++RSSI : Received Signal Status Indicator
++P2P : Peer-to-Peer
++IoT : Internet of Things
++RTOS : Real-Time Operating System
++ISP : Internet Service Provider
++MITM : Man-in-the-Middle Attack
++BCM : Body Control Module
++FOC : Field-Oriented Control

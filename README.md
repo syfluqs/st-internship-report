@@ -2,10 +2,11 @@
 
 This repo contains a report regarding my 6-month internship at STMicroelectronics, India.
 
-Install ```pandoc```, ```pandoc-crossref```, ```latex``` and ```ghostscript``` in Arch Linux with
+Install ```pandoc```, ```pandoc-crossref```, ```latex``` and ```pdftk-bin``` in Arch Linux with
 
 ```zsh
-pacman -S pandoc texlive-core texlive-latexextra pandoc-crossref ghostscript
+pacman -S pandoc texlive-core texlive-latexextra pandoc-crossref
+yaourt -S pdftk-bin
 ```
 
 A list of available otf system fonts can be queried with

@@ -6,7 +6,7 @@ font-size: 12pt
 \vspace*{\fill}
 \begin{center}
 \pagenumbering{gobble}
-\textbf{\large Acknowledgements}
+\textbf{\large }
 \end{center}
 
 \vspace*{\fill}
