@@ -1471,5 +1471,7 @@ Brushess DC motors, on the other hand, are widely accepted technology but are no
 A few technical difficulties were faced during development of projects like
 
 1. Many hardware and software platforms like SPC, were at a nascent stage of development. Thus, many firmware libraries were regularly being changed. This produced a problem for code rebasing, as even some basic API names were changed. An example, was when a new firmware abstraction layer knwon as the OSAL (Operating System Abstraction Layer) was introduced, it broke the delay API in VTS, because some C variables were made static at the source and not otherwise accesible.
+
 2. The BLE stack for BlueNRG-1 was also under active development, so many security features like whitelists and blacklists were unavailable for version 4.1. Instead some crude workarounds were made for that functionality.
+
 3. Some problems were faced regarding the SPI peripheral in STM32F303RE micro-controller. There was some fault in the design of hardware FIFO buffers in the SPI peripheral due to which byte-order of data was jumbled at a specific clock frequency. Later this problem was mentioned in the errata sheet for the device on ST website.
