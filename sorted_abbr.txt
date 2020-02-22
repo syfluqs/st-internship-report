@@ -1,29 +1,71 @@
++abbr : abbreviation
 - **ACIM **: AC Induction Motor
++ACIM : AC Induction Motor
 - **AMG **: Analog and MEMS Group
++AMG : Analog and MEMS Group
+# An abbreviation starting with 0 will not included in the list 
+# A new line is necessary at the end of this file.
 - **ASIC **: Application Specific Integrated Circuit
++ASIC : Application Specific Integrated Circuit
 - **BCM **: Body Control Module
++BCM : Body Control Module
 - **BLDC **: Brush-less DC
++BLDC : Brush-less DC
 - **BLE **: Bluetooth Low Energy
++BLE : Bluetooth Low Energy
 - **BSP **: Board Support Packages
++BSP : Board Support Packages
 - **CAN **: Controller Area Network
++CAN : Controller Area Network
 - **CMSIS **: Cortex Microcontroller Software Interface Standard
++CMSIS : Cortex Microcontroller Software Interface Standard
++dept : Department
 - **ECM **: Electronic Commutation Motor
++ECM : Electronic Commutation Motor
 - **ECU **: Engine Control Unit
++ECU : Engine Control Unit
 - **FOC **: Field-Oriented Control
++FOC : Field-Oriented Control
++grnoida : Greater Noida
 - **HAL **: Hardware Abstraction Layer
++HAL : Hardware Abstraction Layer
++inc : Incorporated
++in : India
 - **IoT **: Internet of Things
++IoT : Internet of Things
 - **ISP **: Internet Service Provider
++ISP : Internet Service Provider
 - **LIN **: Local Interconnect Network
++LIN : Local Interconnect Network
++ltd : Limited
 - **MITM **: Man-in-the-Middle Attack
++MITM : Man-in-the-Middle Attack
+# of abbreviations, but will be expanded regardless.
 - **OOP **: Object-Oriented Programming
++OOP : Object-Oriented Programming
 - **P2P **: Peer-to-Peer
++P2P : Peer-to-Peer
 - **PMSM **: Permanant Magnet Synchronous Motor
++PMSM : Permanant Magnet Synchronous Motor
++PPC: PowerPC
 - **RSSI **: Received Signal Status Indicator
++RSSI : Received Signal Status Indicator
 - **RTOS **: Real-Time Operating System
++RTOS : Real-Time Operating System
 - **SFR **: Special Function Register
++SFR : Special Function Register
 - **SIG **: Specific Interest Group
++SIG : Specific Interest Group
++slab : Systems Lab
 - **SoC **: System on Chip
++SoC : System on Chip
++ST : STMicroelectronics
 - **SWD **: Single Wire Debug
++SWD : Single Wire Debug
 - **TCP **: Transmission Control Protocol
++TCP : Transmission Control Protocol
 - **UDP **: User Datagram Protocol
++UDP : User Datagram Protocol
 - **VLE **: Variable Length Encoding
++VLE : Variable Length Encoding
++www : World Wide Web

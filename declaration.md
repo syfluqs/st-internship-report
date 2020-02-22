@@ -15,7 +15,7 @@ I hereby declare that the project work entitled \textbf{"Vehicle Tracking System
 \hfill\break
 \hfill\break
 \begin{flushright}
-\today\  \hfill \textbf{\normalsize Subham Roy}
+{\normalsize June 26, 2017}  \hfill \textbf{\normalsize Subham Roy}
 \\ \hfill SID: 14105071
 \end{flushright}
 \begin{flushleft}
@@ -28,4 +28,7 @@ Certified that the above statement made by the student is correct to the best of
 \\{\normalsize  Assistant Professor} \hfill {\normalsize Manager, Automotive}
 \\{\normalsize ECE Dept. PEC} \hfill {\normalsize STMicroelectronics, Gr. Noida}
 \end{flushleft}
+
 \vspace*{\fill}
+
+\leavevmode\thispagestyle{empty}\newpage
